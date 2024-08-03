@@ -12,6 +12,7 @@
         {"task": "Transfer Case", "frequency_miles": 30000, "frequency_max_miles": 40000},
         {"task": "Grease Driveshaft", "frequency_miles": 5000, "frequency_max_miles": 10000},
         {"task": "Clean Air Flow Sensor", "frequency_miles": 5000, "frequency_max_miles": 30000},
+        {"task": "Clean Throttle Body", "frequency_miles": 20000, "frequency_max_miles": 30000},
         {"task": "Spark Plugs", "frequency_miles": 30000, "frequency_max_miles": 50000},
         {"task": "Replace PCV", "frequency_miles": 30000, "frequency_max_miles": 50000},
         {"task": "Serpentine Belt", "frequency_miles": 100000, "frequency_max_miles": 125000},

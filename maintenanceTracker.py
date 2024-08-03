@@ -13,6 +13,7 @@ class CarMaintenanceApp:
         self.root = root
         self.root.title("Car Maintenance Tracker")
         self.load_config()
+        self.current_mileage = tk.IntVar(value=self.get_latest_mileage())
         self.create_widgets()
         self.update_task_status()
 
@@ -20,11 +21,18 @@ class CarMaintenanceApp:
         with open('config.json', 'r') as file:
             self.config = json.load(file)['maintenance_tasks']
 
+    def get_latest_mileage(self):
+        conn = sqlite3.connect('car_maintenance.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT MAX(mileage) FROM maintenance')
+        result = cursor.fetchone()
+        conn.close()
+        return result[0] if result[0] is not None else 0
+
     def create_widgets(self):
         baseframe = tk.Frame(self.root, padx=COLUMN_WIDTH, pady=COLUMN_WIDTH)
         baseframe.pack(fill=tk.X)
 
-        self.current_mileage = tk.IntVar(value=115000)
         self.mileage_entry = ttk.Entry(baseframe, width=FIRST_COLUMN_WIDTH)
         self.mileage_entry.pack(side=tk.LEFT)
         self.mileage_entry.insert(0, str(self.current_mileage.get()))

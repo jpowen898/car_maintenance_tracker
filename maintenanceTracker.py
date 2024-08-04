@@ -5,10 +5,10 @@ import json
 from datetime import datetime
 import sqlite3
 import tkinter.font as font
+import subprocess
 
 FIRST_COLUMN_WIDTH = 20
 COLUMN_WIDTH = 20
-
 
 class ScrollableFrame(tk.Frame):
     """
@@ -131,10 +131,16 @@ class CarMaintenanceApp:
         ).pack(side=tk.LEFT)
 
         # Create and pack the mileage entry widget
-        self.mileage_entry = ttk.Entry(baseframe, width=FIRST_COLUMN_WIDTH)
+        self.mileage_entry = ttk.Entry(baseframe, width=7)
         self.mileage_entry.pack(side=tk.LEFT)
         self.mileage_entry.insert(0, str(self.current_mileage.get()))
         self.mileage_entry.bind("<Return>", lambda event: self.update_mileage())
+
+        self.open_pdf_btn = tk.Button(
+            baseframe, text="open ref", command=lambda : {
+                subprocess.run(["open", "docs/2nd_Gen_Tacoma_maintence_guide.pdf"])
+            }
+        ).pack(side=tk.LEFT, padx=20)
 
         # Create and pack the scrollable frame for tasks
         self.scrollable_frame = ScrollableFrame(self.root)

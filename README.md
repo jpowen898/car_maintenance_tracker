@@ -1,6 +1,6 @@
 # Car Maintenance Tracking Application
 
-This python application can be used to keep track of your regular car maintenance items. The application manages a data base which will keep track of the milage and date of when you last performed the required maintenance and then indicate if this action needs to be taken again soon or not. Simply type in your current milage into the upper left corner and then hit enter and it will indicate what actions need to be taken.
+This python application can be used to keep track of your regular car maintenance items. The application manages a data base which will keep track of the milage and date of when you last performed the required maintenance and then indicate if this action needs to be taken again soon or not. Simply type in your current milage into the upper right corner and then hit enter and it will indicate what actions need to be taken.
 
 ![alt text](docs/guiImage.png)
 
@@ -13,4 +13,6 @@ The current configuration of this application is set to mirror the recommended m
 This table was taken from this forum post https://www.tacomaworld.com/threads/2nd-gen-diy-maintenance-quick-reference-guide.438945/
 
 ## Edit Maintenance Record
-For now the easiest way to edit your maintenance record is to use sqlitebrowser to open and edit your car_maintenance.db file. https://sqlitebrowser.org/
+To edit your maintence record simply click ``view history`` on the task you want to edit and then modify the values using the text boxes and use the ``save`` button to update the database. You can also remove a row from the database using the ``delete`` button.
+
+![alt text](docs/historyEditor.png)
